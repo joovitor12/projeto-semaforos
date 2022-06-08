@@ -2,14 +2,14 @@ import java.util.concurrent.Semaphore;
 public class Program {
 
 	public static void main(String[] args) {
-		int permissions = 1;
-		Semaphore southRunway = new Semaphore(permissions);
-		Semaphore northRunway = new Semaphore(permissions);
-		Semaphore[] runways = new Semaphore[] {southRunway, northRunway};
+		int permissoes = 1;
+		Semaphore pistaSul = new Semaphore(permissoes);
+		Semaphore pistaNorte = new Semaphore(permissoes);
+		Semaphore[] pistas = new Semaphore[] {pistaSul, pistaNorte};
 		
 		for (int i = 0; i < 12; i++) {
-			Thread threadPlane = new ThreadPlane(runways,i);
-			threadPlane.start();
+			Thread threadAviao = new ThreadAviao(pistas,i);
+			threadAviao.start();
 		}
 	}
 
